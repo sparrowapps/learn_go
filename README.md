@@ -55,16 +55,25 @@ swift 의 변수 선언과 유사 하게 타입을 뒤에 표시 한다.
 ```go
 var x, y, z int
 var c, python, java bool
+
+// := 초기화 및 선언
+xy := 1
 ```
 * 비교 siwft
 ```swift
 var x: Int
+var y: Int
+var z: Int
+
+// 초기화
+var xy = 1
 ```
 
 
 
 ## 함수
 리턴 타임을 swift 처럼 뒤에 표시 한다. 
+go 언어에서는 함수에 인자 전달이 무조건 복사다.
 ```go
 func add(x int, y int) int {
     return x + y
@@ -92,6 +101,29 @@ func swap(x: String, y:String) -> (String, String) {
     return (y, x)
 }
 ```
+
+### 함수 값
+함수도 값이다.
+```go
+hypot := func(x, y float64) float64 {
+        return math.Sqrt(x*x + y*y)
+    }
+```
+
+### 함수 클로져 (Function closures)
+함수는 클로져다.
+
+adder() 함수는 func(int) int 클로져를 반환 한다.
+```go
+func adder() func(int) int {
+    sum := 0
+    return func(x int) int {
+        sum += x
+        return sum
+    }
+}
+```
+
 
 ## 구조체
 ```go
@@ -216,5 +248,97 @@ s[lo:lo+1]
 ```swift
 s[lo:..<lo+1]
 ```
+
+## 맵
+key value 표현
+사용하기 전에 make를 명시 해야 한다.
+```go
+type Vertex struct {
+    Lat, Long float64
+}
+
+var m map[string]Vertex
+
+func main() {
+    m = make(map[string]Vertex)
+    m["Bell Labs"] = Vertex{
+        40.68433, -74.39967,
+    }
+    fmt.Println(m["Bell Labs"])
+}
+
+```
+
+맵 리터럴
+```go
+type Vertex struct {
+    Lat, Long float64
+}
+
+var m = map[string]Vertex{
+    "Bell Labs": Vertex{
+        40.68433, -74.39967,
+    },
+    "Google": Vertex{
+        37.42202, -122.08408,
+    },
+}
+
+```
+
+맵 m의 요소를 삽입
+```
+m[key] = elem
+```
+맵 m의 값 가져오기
+```
+elem = m[key]
+```
+요소 지우기
+```
+delete(m, key)
+```
+키의 존재 여부 확인기
+```
+elem, ok = m[key]
+```
+
+* swift 비교
+```swift
+var dic : [String:Int] = [:]
+```
+swift 딕셔너리 값추가
+```swift
+dic.updateValue(1, forkey:"aaa")
+```
+swift 딕셔너리 값 접근
+```
+dic[key]
+```
+swift 딕셔너리 값 삭제
+```
+dic.removeValue(forKey: "aaa")
+```
+swift 딕셔너리 모든값 삭제
+```
+dic.removeAll()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
