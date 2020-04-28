@@ -5,6 +5,25 @@ A Tour of Go https://tour.golang.org/welcome/1
 \
 go 언어 문법을 모던 언어인 swift와 비교 하면 정리 한다.
 
+## Go 언어 문서들
+효과적인 Go 프로그래밍\
+https://gosudaweb.gitbooks.io/effective-go-in-korean/content/
+
+가장빨리 만나는 Go 언어\
+http://pyrasis.com/go.html
+
+
+
+## Go 언어 특징
+1. 강한 타입 
+2. 정적 타입
+3. 컴파일
+4. 가비지 컬렉션을 실행 파일에 지니고 있음
+5. 함수의 끝에 { 를 표시 해야 하는 등 코딩 규칙을 강제화 함
+6. class 가 없음
+
+
+
 
 ## package
 패스명의 마지막 이름을 package 이름으로 한다.
