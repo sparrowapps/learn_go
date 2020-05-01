@@ -24,11 +24,9 @@ http://pyrasis.com/go.html
 
 
 
-
 ## package
 패스명의 마지막 이름을 package 이름으로 한다.
 
-## import
 여러 패키지를 임포트 할때 () 감싸서 표현 한다.
 ```go
 import (
@@ -42,6 +40,23 @@ import (
 import "fmt"
 import "math"
 ```
+
+### 패키지 별칭 사용
+```go
+package main
+import f "fmt"
+func main() {
+    f.Println("Hello world")
+}
+```
+
+### 패키지 미 사용 에러 발생시
+```go
+import _ "fmt"
+```
+
+
+
 
 * 비교 swift
 ```swift
@@ -72,6 +87,7 @@ complex64 complex128
 swift 의 변수 선언과 유사 하게 타입을 뒤에 표시 한다.
 
 ```go
+//병렬 할당 
 var x, y, z int
 var c, python, java bool
 
@@ -87,6 +103,44 @@ var z: Int
 // 초기화
 var xy = 1
 ```
+
+## 상수
+```go
+const pi = 3.14
+
+const x, y int = 10, 20
+const age, name = 44, "Choi"
+
+const (
+    x, y int = 10, 20
+    age, name = 44, "Choi"
+)
+```
+
+## 연산자
+|연산자|기능|설명|
+|------|---|---|
+|:=|변수 선언 및 대입|변수를 선언과 동시에 값을 대입|
+|+=, -=, *=, /=|연산후 대입|현재 변수에서 값을 연산후 대입 C/C++과 동일|
+|&^| AND NOT| 비트 단위 AND NOT 연산|
+
+C언어와 유사\
+swift는 += 등의 연산을 사용하지 못하게 하고 있다.
+
+
+## 열거형
+```go
+const (
+    Sun = iota
+    Mon 
+    Tue
+    Wed
+    Thu
+    Fri
+    Sat
+)
+```
+iota 0 부터 순서대로 됨
 
 
 
