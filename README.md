@@ -142,7 +142,40 @@ const (
 ```
 iota 0 부터 순서대로 됨
 
+## for
+break label
+continue label
 
+label은 변수 이름을 짓는 규칙과 같다.
+```go
+Loop:
+
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			if j == 2 {
+				break Loop
+			}
+			fmt.Println(i, j)
+		}
+	}
+	fmt.Println("hello, world!")
+
+```
+
+## goto
+C언어의 goto 문과 같다.\
+lable은  변수 이름을 짓는 규칙과 같다.
+
+```go
+goto label
+lable:
+```
+
+## switch
+break 가 없어도 만족 하는 case 만 실행 한다.\
+C/C++처럼 break 가 없어서 아래의 case도 실행 하고 싶을 때는 fallthrough를 사용한다.\
+
+case의 조건식을 사용할 수 있다.
 
 ## 함수
 리턴 타임을 swift 처럼 뒤에 표시 한다. 
